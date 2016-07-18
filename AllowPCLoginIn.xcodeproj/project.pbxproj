@@ -17,6 +17,7 @@
 		440203F11D3C76F0008790EC /* AllowPCLoginInUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 440203F01D3C76F0008790EC /* AllowPCLoginInUITests.m */; };
 		440204061D3C7A18008790EC /* AllowPCLoginIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 440204051D3C7A18008790EC /* AllowPCLoginIn.m */; };
 		440204091D3C7A4F008790EC /* AllowPCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 440204081D3C7A4F008790EC /* AllowPCViewController.m */; };
+		4402040C1D3CADF2008790EC /* icon_pc.png in Resources */ = {isa = PBXBuildFile; fileRef = 4402040B1D3CADF2008790EC /* icon_pc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		440204051D3C7A18008790EC /* AllowPCLoginIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllowPCLoginIn.m; sourceTree = "<group>"; };
 		440204071D3C7A4F008790EC /* AllowPCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllowPCViewController.h; sourceTree = "<group>"; };
 		440204081D3C7A4F008790EC /* AllowPCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllowPCViewController.m; sourceTree = "<group>"; };
+		4402040B1D3CADF2008790EC /* icon_pc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		440203FE1D3C772A008790EC /* AllowPCLoginIn */ = {
 			isa = PBXGroup;
 			children = (
+				4402040B1D3CADF2008790EC /* icon_pc.png */,
 				440204021D3C7A18008790EC /* Conroller */,
 				440204031D3C7A18008790EC /* View */,
 			);
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				440203DB1D3C76F0008790EC /* LaunchScreen.storyboard in Resources */,
+				4402040C1D3CADF2008790EC /* icon_pc.png in Resources */,
 				440203D81D3C76F0008790EC /* Assets.xcassets in Resources */,
 				440203D61D3C76F0008790EC /* Main.storyboard in Resources */,
 			);

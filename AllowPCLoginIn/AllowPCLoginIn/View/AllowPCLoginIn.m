@@ -10,6 +10,19 @@
 
 @interface AllowPCLoginIn ()
 
+//确认登陆按钮
+@property (nonatomic, strong) UIButton * sureBtn;
+
+//取消登录按钮
+@property (nonatomic, strong) UIButton * cancelBtn;
+
+//显示电脑图片
+@property (nonatomic, strong) UIImageView * pcImageView;
+//第一行文字
+@property (nonatomic, strong) UILabel * line1Label;
+//第二行文字
+@property (nonatomic, strong) UILabel * line2Label;
+
 @end
 
 @implementation AllowPCLoginIn
@@ -33,12 +46,19 @@
     
     UIImageView *pcImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     pcImageView.backgroundColor = [UIColor clearColor];
+    pcImageView.tag = 153;
+    self.pcImageView = pcImageView;
     [self addSubview:pcImageView];
     
-    UILabel *makeSureLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    makeSureLabel.backgroundColor = [UIColor clearColor];
-    makeSureLabel.numberOfLines = 2;
-    [self addSubview:makeSureLabel];
+    UILabel *line1Label = [self setupCommonLabelWithFrame:CGRectZero];
+    line1Label.tag = 154;
+    self.line1Label = line1Label;
+    [self addSubview:line1Label];
+    
+    UILabel *line2Label = [self setupCommonLabelWithFrame:CGRectZero];
+    line2Label.tag = 155;
+    self.line2Label = line2Label;
+    [self addSubview:line2Label];
     
     UIButton *sureBtn = [self setupCommonButtonWithFrame:CGRectZero];
     sureBtn.backgroundColor = [UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000];
@@ -58,6 +78,25 @@
     [self addSubview:cancelBtn];
 }
 
+/**
+ *  创建公共label
+ *
+ */
+- (UILabel *)setupCommonLabelWithFrame:(CGRect)labelFrame {
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
+    
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont boldSystemFontOfSize:17.f];
+    label.textColor = [UIColor colorWithWhite:0.762 alpha:1.000];
+    
+    return label;
+}
+/**
+ *  创建公共button
+ *
+ */
 - (UIButton *)setupCommonButtonWithFrame:(CGRect)btnFrame {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -75,19 +114,42 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat yPixel1 = self.bounds.size.height*0.5;
+    
+    CGFloat viewWidth = self.bounds.size.width;
+    CGFloat viewHeight = self.bounds.size.height;
+    
+    CGFloat imageYpixel = 50;
+    CGFloat imageWidth = viewWidth / 2;
+    CGFloat imageXpixel = (viewWidth - imageWidth) * 0.5;
+    CGFloat imageHeight = imageWidth * 200 / 284;
+    CGRect imageViewFrame = CGRectMake(imageXpixel, imageYpixel, imageWidth, imageHeight);
+    
+    CGFloat labelXpixel = 0;
+    CGFloat labelWidth = viewWidth;
+    CGFloat labelHeight = 20;
+    
+    CGFloat label1Ypixel = imageYpixel + imageHeight + 30;
+    CGFloat label2Ypixel = label1Ypixel + labelHeight + 20;
+    CGRect label1Frame = CGRectMake(labelXpixel, label1Ypixel, labelWidth, labelHeight);
+    CGRect label2Frame = CGRectMake(labelXpixel, label2Ypixel, labelWidth, labelHeight);
+    
+    CGFloat btn1Ypixel = label2Ypixel + labelHeight + imageYpixel;
     CGFloat btnSpace = 30;
     
     CGFloat btnXpixel = 20;
-    CGFloat btnWidth = self.bounds.size.width - btnXpixel * 2;
+    CGFloat btnWidth = viewWidth - btnXpixel * 2;
     CGFloat btnHeight = 50;
-    CGRect sureBtnFrame = CGRectMake(btnXpixel, yPixel1, btnWidth, btnHeight);
+    CGRect sureBtnFrame = CGRectMake(btnXpixel, btn1Ypixel, btnWidth, btnHeight);
     
-    CGFloat yPixel2 = yPixel1 + btnHeight + btnSpace;
-    CGRect cancelBtnFrame = CGRectMake(btnXpixel, yPixel2, btnWidth, btnHeight);
+    CGFloat btn2Ypixel = btn1Ypixel + btnHeight + btnSpace;
+    CGRect cancelBtnFrame = CGRectMake(btnXpixel, btn2Ypixel, btnWidth, btnHeight);
     
     self.sureBtn.frame = sureBtnFrame;
     self.cancelBtn.frame = cancelBtnFrame;
+    
+    self.pcImageView.frame = imageViewFrame;
+    self.line1Label.frame = label1Frame;
+    self.line2Label.frame = label2Frame;
 }
 
 
