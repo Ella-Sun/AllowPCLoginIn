@@ -61,7 +61,7 @@
     [self addSubview:line2Label];
     
     UIButton *sureBtn = [self setupCommonButtonWithFrame:CGRectZero];
-    sureBtn.backgroundColor = [UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000];
+    sureBtn.backgroundColor = [UIColor colorWithRed:64/255.0 green:128/255.0 blue:244 / 255.0 alpha:1.0];
     [sureBtn setTitle:@"确认登录" forState:UIControlStateNormal];
     sureBtn.tintColor = [UIColor whiteColor];
     sureBtn.tag = 151;
@@ -116,7 +116,7 @@
     [super layoutSubviews];
     
     CGFloat viewWidth = self.bounds.size.width;
-    CGFloat viewHeight = self.bounds.size.height;
+//    CGFloat viewHeight = self.bounds.size.height;
     
     CGFloat imageYpixel = 50;
     CGFloat imageWidth = viewWidth / 2;
